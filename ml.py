@@ -6,13 +6,13 @@ from sklearn import linear_model
 import numpy as np
 ############
 #loading dataset
-dataset = pandas.read_csv('data.csv')
-dataset.drop('timestamp', inplace=True, axis=1)
+dataset = pandas.read_csv('bihar.csv')
+dataset.drop('SUBDIVISION', inplace=True, axis=1)
 dataset.hist()
 pyplot.show()
 
 #supervised learning
-predict = 'Temperature'
+predict = 'ANNUAL'
 x = np.array(dataset.drop([predict], 1))
 y = np.array(dataset[predict])
 
@@ -26,12 +26,13 @@ print('co',linear.coef_)
 print('intercept',linear.intercept_)
 
 #predection the values
+'''
 value=[]
 humi=int(input('Humidity==>'))
 value.append(humi)
 speed=int(input('speed==>'))
 value.append(speed)
 direction=int(input('direction==>'))
-value.append(direction)
-predication= linear.predict([value])
+value.append(direction)'''
+predication= linear.predict([[2022]])
 print(predication)
